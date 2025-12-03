@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class.cs" />
+    <Compile Remove="Program.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="C:\CodePractice\UnityStudy\Class.cs" Link="Class.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\CodePractice\UnityStudy\JobOOP.cs" Link="JobOOP.cs" />
+    <None Include="Class.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Program3.cs" />
+  </ItemGroup>
+
+</Project>
