@@ -153,6 +153,8 @@ namespace JobOOP
 
             Player plyer = new Player(); // 이것도 불가능하다. 추상클래스는 new를 못 쓰기 때문이다.
 
+            // 숙제
+
 
         }
 
