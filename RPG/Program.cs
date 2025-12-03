@@ -49,9 +49,7 @@
             }
             public Character(string name, int hp, int atk)
             {
-                this.Name = name;
-                this.Hp = hp;
-                this.Atk = atk;
+                
             }
             public virtual void Attack(Character target)
             {
@@ -109,7 +107,9 @@
 
           public Player(string name, int hp, int atk) : base(name, hp, atk) 
             {
-
+                this.Name = name;
+                this.Hp = hp;
+                this.Atk = atk;
             }
 
             public void GainExp(int amount) 
@@ -154,7 +154,6 @@
             {
                 Random rand = new Random();
                 Hp = rand.Next(20,51);
-                Console.WriteLine($"[Trace] monster hp : {this.Hp}");
                 Atk = rand.Next(2, 6);
                 Name = RandomName();
             }
@@ -217,6 +216,7 @@
                 Console.SetCursorPosition(30, 20);
 
                 // Update ----------------------------------------
+                Console.WriteLine($"몬스터가 나타났다. {monster.Name},{monster.Hp},{monster.Atk}");
                 Console.WriteLine($"공격력 {player.Name}님{player.Atk} vs {monster.Atk}적");
                 Console.WriteLine($"{player.Name}님 공격 차례입니다");
                 player.Attack(monster);
