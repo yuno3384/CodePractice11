@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace _20251203Practice
 {
     internal class test
     {
+        #region
         //    New Scene은 File에서 해도 되고, Cntl+n으로도 된다
         //    GameObject에 MonoBehaviour는 inspector에 넣어도 되고,
         //    Hierachy에서 넣어도 되고, Add Component에 넣어도 된다
@@ -115,7 +117,7 @@ namespace _20251203Practice
         //    exp = 50;
         //    item = "포션";
         //}
-        //// 오버로딩 : 함수 이름 재사용 > 매개변수의 '갯수' 아니면 '형식'만 달리 해주면 된다(**면접문제 필수)
+        // 오버로딩 : 함수 이름 재사용 > 매개변수의 '갯수' 아니면 '형식'만 달리 해주면 된다(**면접문제 필수)
         //static void Add(int a) // a는 값이 필요해요
         //{
         //    a++;
@@ -178,30 +180,44 @@ namespace _20251203Practice
         //int c = 30;
         //// 순서가 뒤죽박죽이어도 대입이 된다 > 쓸 일은 없어것 같지만
         //Add(a, b, e: 4, d: 3, c: 30);
-        /*
-         static void Main() // 아 여기서부터 시작되는구나...
+#endregion
+        struct Point
         {
-        //int a = 10;// a는 10이다
-         //int a/*0xfff999s = 99;*/ //a는 99이다
 
-        //    Test(a/*a의 값인 99라는 값*/);// 그냥 10이라는 값만 준 것 > 끝나면 사라지는 값
+        }
+        static void Main() // 아 여기서부터 시작되는구나...
+        {
+            #region
+            //int a = 10;// a는 10이다
+            //int a/*0xfff999s = 99;*/ //a는 99이다
 
-        //Console.WriteLine(a/*a의 값 자체*/);// 이거 10일까 11일까? > 10이 나온다
-        //                                      // 이거 99일까 100일까 > 99이다
+            //    Test(a/*a의 값인 99라는 값*/);// 그냥 10이라는 값만 준 것 > 끝나면 사라지는 값
 
-        //    Add(ref a/*0xfff999s*/);// 이건 a의 주소값을 준 것 > a속 값을 바꾼다
+            //Console.WriteLine(a/*a의 값 자체*/);// 이거 10일까 11일까? > 10이 나온다
+            //                                      // 이거 99일까 100일까 > 99이다
 
-        //Console.WriteLine(a/*a의 값*/);// 이거 10일까 11일까? > 11이 나온다
-        //                                  // 이거 99일까 100일까 > 100이다
+            //    Add(ref a/*0xfff999s*/);// 이건 a의 주소값을 준 것 > a속 값을 바꾼다
 
-        ////x와 y의 값을 서로 바꿔라
-        //int x = 10;
-        //int y = 20;
-        //Swap(ref x , ref y );
-        //Console.WriteLine($"{x},{y}");
+            //Console.WriteLine(a/*a의 값*/);// 이거 10일까 11일까? > 11이 나온다
+            //                                  // 이거 99일까 100일까 > 100이다
 
-         
-         
+            ////x와 y의 값을 서로 바꿔라
+            //int x = 10;
+            //int y = 20;
+            //Swap(ref x , ref y );
+            //Console.WriteLine($"{x},{y}");
+            #endregion
+            //구조체에서 new는 초기화를 의미한다
+            // 구조체는 값 전달 > 함수로 보내도 값이 안 변함
+            // ref로 바꾸면 역시나 주소값이 전달되어 > 진짜값이 변한다
+
+
+
+
+
+
+        }
+
 
     }
 }
