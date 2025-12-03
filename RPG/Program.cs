@@ -49,7 +49,9 @@
             }
             public Character(string name, int hp, int atk)
             {
-
+                this.Name = name;
+                this.Hp = hp;
+                this.Atk = atk;
             }
             public virtual void Attack(Character target)
             {
@@ -107,9 +109,6 @@
 
           public Player(string name, int hp, int atk) : base(name, hp, atk) 
             {
-                this.Name = name;
-                this.Hp = hp;
-                this.Atk = atk;
 
             }
 
@@ -155,6 +154,7 @@
             {
                 Random rand = new Random();
                 Hp = rand.Next(20,51);
+                Console.WriteLine($"[Trace] monster hp : {this.Hp}");
                 Atk = rand.Next(2, 6);
                 Name = RandomName();
             }
@@ -198,8 +198,10 @@
 
            
             */
-            
+            // init input -------------------------------------------
+            Console.SetCursorPosition(30, 17);
             Console.WriteLine("플레이어님의 이름은 어떻게 되십니까?");
+            Console.SetCursorPosition(30, 20);
             string read = Console.ReadLine();
             Player player = new Player(read,50,6);
             Monster monster = new Monster();
@@ -207,6 +209,15 @@
 
             while (monster.IsDead())
             {
+               
+               // Render ------------------------------------ 
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(30, 20);
+
+                // Update ----------------------------------------
+                Console.WriteLine($"공격력 {player.Name}님{player.Atk} vs {monster.Atk}적");
                 Console.WriteLine($"{player.Name}님 공격 차례입니다");
                 player.Attack(monster);
                 Console.WriteLine($"player : {player.Hp},monster : {monster.Hp}");
