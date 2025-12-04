@@ -51,12 +51,13 @@
             {
 
             }
-            public virtual void Attack(Character target)
+            public virtual void Attack(Character target) // 현재 작동중
             {
                 //target의 Hp를 Atk만큼 감소시키기
                 //Console.WriteLine($"[Trace]Before Attack Hp : {this.Hp}, {target.Hp}");
                 //Console.WriteLine($"[Trace]Before Attack Atk : {this.Atk}, {target.Atk}");
-                this.Hp -= target.Atk;
+                //this.Hp -= target.Atk;// this.Hp = this.Hp - target.Atk;
+                target.Hp -= this.Atk;
                 //Console.WriteLine($"[Trace]After Attack Hp : {this.Hp}, {target.Hp}");
                 //HP가 0 미만이면 HP를 0으로 설정
 
@@ -150,10 +151,12 @@
         class Monster : Character
         {
 
-            public Monster() : base()
+            public Monster() : base() // 여기가 작동을 하나?
             {
                 Random rand = new Random();
-                this.Hp = rand.Next(20, 51);
+                //this.Hp = rand.Next(20, 51);
+                this.Hp = 50;
+                Console.WriteLine($"[Error Tracking]Monster HP{this.Hp}");// 작동안함
                 this.Atk = rand.Next(2, 6);
                 this.Name = RandomName();
             }
@@ -209,15 +212,13 @@
             while (true)
             {
                 Monster monster = new Monster();
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
 
                 while (!monster.IsDead())
                 {
 
-                    // Render ------------------------------------ 
-                    Console.Clear();
-                    Console.BackgroundColor = ConsoleColor.Cyan;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(30, 0);
+                    
 
                     // Update ----------------------------------------
                     Console.WriteLine($"몬스터가 나타났다. {monster.Name},{monster.Hp},{monster.Atk}");
@@ -240,19 +241,34 @@
 
                     }
 
+
+                    // Render------------------------------------
+                    //Console.Clear();
+                    
+                    //Console.SetCursorPosition(30, 0);
+
                 }
+
+
                 Console.WriteLine("“계속 싸우시겠습니까?(y/n)”");
                 answer = Console.ReadLine();
 
                 if (answer == "y" || answer == "yes" || answer == "예" || answer == "응")
                 {
-                    player.Hp = 100;
+                    //player.Hp = 50;
 
                 }
                 else if (answer == "n" || answer == "no" || answer == "아니")
                 {
                     Console.WriteLine("나중에 다시 봐요");
+                    break;
                 }
+                else
+                {
+                    Console.WriteLine("다시 말씀해주시겠나요?");
+                    answer = Console.ReadLine();
+                }
+
             }
 
 
