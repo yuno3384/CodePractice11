@@ -79,7 +79,7 @@
                     _data = newArr;
                 }
 
-                // 새공간에 대에터 넣어주기
+                // 새공간에 데이터 넣어주기
                 _data[count] = item;
                 // count == 5
                 // _data[0] _data[1] _data[2] _data[3] _data[4] _data[count == 5]
